@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoria Cadastrada</title>
+    <style>
+        /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contêiner central */
+.container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Títulos e texto */
+h1 {
+    color: #28a745;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Botões */
+.actions .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.actions .btn.secondary {
+    background-color: #6c757d;
+}
+
+.actions .btn:hover {
+    background-color: #0056b3;
+}
+
+.actions .btn.secondary:hover {
+    background-color: #5a6268;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message-box">
+            <h1>Categoria Cadastrada com Sucesso!</h1>
+            <p>Sua categoria foi cadastrada no sistema com sucesso.</p>
+            <div class="actions">
+                <a href="/" class="btn">Voltar ao Início</a>
+                <a href="/categories/mostra" class="btn secondary">Cadastrar Outra Categoria</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

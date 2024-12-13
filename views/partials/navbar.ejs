@@ -1,0 +1,93 @@
+<style>
+    /* Define o estilo geral da navbar */
+    .navbar {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: #000000; /* Azul primário */
+        color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilo do link da marca */
+    .navbar .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* Estilo para hover no link da marca */
+    .navbar .navbar-brand:hover {
+        color: #d4e4ff; /* Azul mais claro no hover */
+    }
+
+    /* Estilo para os itens da lista na navbar */
+    .navbar .navbar-nav {
+        display: flex;
+        gap: 1rem; /* Espaçamento horizontal entre os itens */
+        list-style: none; /* Remove os marcadores padrão */
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar .navbar-nav .nav-item {
+        position: relative;
+    }
+
+    .navbar .navbar-nav .nav-item a {
+        text-decoration: none;
+        color: #fff; /* Cor do texto dos links */
+        font-size: 1rem;
+        padding: 0.5rem 0.8rem; /* Adiciona área clicável */
+        transition: color 0.3s, background-color 0.3s;
+        border-radius: 5px; /* Arredonda os cantos */
+    }
+
+    /* Efeito hover para os links */
+    .navbar .navbar-nav .nav-item a:hover {
+        color: #d4e4ff; /* Cor clara no hover */
+        background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente transparente */
+    }
+
+    /* Efeito ativo (link da página atual) */
+    .navbar .navbar-nav .nav-item a.active {
+        font-weight: bold;
+        color: #d4e4ff; /* Realce da página ativa */
+        border-bottom: 2px solid #d4e4ff; /* Indicador visual */
+    }
+
+    /* Tornar a navbar responsiva */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .navbar .navbar-nav {
+            flex-direction: column;
+            gap: 0.5rem; /* Menor espaçamento em telas pequenas */
+        }
+
+        .navbar .navbar-nav .nav-item a {
+            padding: 0.8rem;
+            text-align: center; /* Centraliza os links */
+            width: 100%; /* Ocupa a largura completa */
+        }
+    }
+</style>
+
+<nav class="navbar navbar-light bg-primary">
+    <a href="/" class="navbar-brand">GuiaPress</a>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="/categories/mostra">Categorias</a>
+        </li>
+        <li class="nav-item">
+            <a href="/articles">Artigos</a>
+        </li>
+        <li class="nav-item">
+            <a href="/logout">Sair</a>
+        </li>
+    </ul>
+</nav>

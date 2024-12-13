@@ -1,0 +1,116 @@
+
+
+<script type="text/javascript" src="../../../tinymce/tinymce.min.js"></script>
+
+<style>
+    /* Estilizando o container */
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilizando o título */
+    .container h2 {
+        color: #343a40;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Estilizando a linha horizontal */
+    .container hr {
+        border: 0;
+        height: 2px;
+        background-color: #343a40;
+        margin: 10px 0;
+    }
+
+    /* Estilizando o campo de entrada */
+    .form-control, .textarea-control {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Foco no campo de entrada */
+    .form-control:focus, .textarea-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
+    }
+
+    /* Estilizando o botão */
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Cor do botão de sucesso */
+    .btn-success {
+        background-color: #28a745;
+    }
+
+    /* Hover no botão de sucesso */
+    .btn-success:hover {
+        background-color: #218838;
+    }
+</style>
+
+<div class="container"><br>
+    <hr>
+    <h2>Cadastro de Artigo</h2>
+    <hr>
+    <form method="POST" action="/articles/save">
+        <input class="form-control" type="text" name="title" placeholder="Defina o titulo do artigo">
+        <textarea class="textarea-control" name="body"  placeholder="Escreva o artigo aqui..." id="article"></textarea>
+        <input type="file" name="arquivo" id="file">
+        <select name="category">
+            <% categories.forEach((category)=>{%>
+                <option value="<%= category.id%>" id="describe"><%= category.title%></option>
+
+                <%})%>
+        </select><br>
+        <button class="btn btn-success">Cadastrar</button>
+    </form>
+</div>
+
+<Script>
+  
+
+    tinymce.init({
+        selector: "textarea",
+        plugins: [
+            'advlist',
+            'autolink',
+            'link',
+            'image',
+            'lists',
+            'preview',
+            'searchreplace',
+            'wordcount',
+            'fullscreen',
+            'insertdatetime',
+            'media',
+            'save',
+            'table',
+            'emoticons',
+        ]
+    });
+</Script>

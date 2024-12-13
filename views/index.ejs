@@ -1,0 +1,181 @@
+
+<style>
+body{
+    background-color: #000000;
+}
+    /* Estilização geral */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Linha horizontal */
+hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Títulos */
+h2 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Estilização da tabela */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f1f1f1;
+}
+a{
+    font-size: 14px;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: green;
+    width: 20px;
+    padding: 10px;
+    text-decoration: none;
+}
+/* Botão estilizado */
+.editar {
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 12px 20px; /* Espaçamento interno */
+    font-size: 10px; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    border: none; /* Sem borda */
+    border-radius: 8px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro ao passar */
+    transition: all 0.3s ease; /* Suavidade nas transições */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  }
+  
+  /* Efeito ao passar o mouse */
+  .editar:hover {
+    background-color: #48c222; /* Cor de fundo ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+    transform: scale(1.05); /* Leve aumento */
+  }
+  
+  /* Efeito ao clicar */
+  .editar:active {
+    background-color: #0a460c; /* Cor mais escura ao clicar */
+    transform: scale(0.98); /* Leve redução */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+  }
+  /*botão deletar*/
+  .deletar {
+    background-color: #cc3a0e; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 12px 20px; /* Espaçamento interno */
+    font-size: 10px; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    border: none; /* Sem borda */
+    border-radius: 8px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro ao passar */
+    transition: all 0.3s ease; /* Suavidade nas transições */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    
+    
+  }
+  
+  /* Efeito ao passar o mouse */
+  .deletar:hover {
+    background-color: #ff0800; /* Cor de fundo ao passar o mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+    transform: scale(1.05); /* Leve aumento */
+  }
+  
+  /* Efeito ao clicar */
+  .deletar:active {
+    background-color: #3e8e41; /* Cor mais escura ao clicar */
+    transform: scale(0.98); /* Leve redução */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reduzida */
+  }
+  
+  
+/* Resposividade */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .table th, .table td {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+   
+}
+
+</style>
+
+<div class="container">
+    <hr>
+    <h2>Categorias</h2>
+    <hr>
+    <a href="/admin/categories/new">Criar nova categoria</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Descricao</th>
+                <th>Ações</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            <% categories.forEach(category =>{ %>
+            <tr>
+                
+                <th><%=category.id%></th>
+                <th><%=category.title%></th>
+                <th><%=category.slug%></th>
+                <th>
+                    
+                    <a href="/categories/edit/<%=category.id%>">Editar</a>
+                    <form method="POST", action="/categories/delete" style="display: inline;" onsubmit="confirmarDelete(event)">
+                        <input type="hidden" name="id" value="<%= category.id %>">
+                        <button class="deletar">Deletar</button>
+                    </form>
+                    
+                </th>
+                
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<script>
+     function confirmarDelete(){
+        event.preventDefault();
+        if (confirm("Você tem certeza que deseja deletar essa categoria?")){
+            event.target.submit();
+        }
+     }
+</script>

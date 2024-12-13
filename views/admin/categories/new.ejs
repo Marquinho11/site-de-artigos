@@ -1,0 +1,83 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs')%>
+<style>
+    /* Estilizando o container */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilizando o título */
+.container h2 {
+    color: #343a40;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilizando a linha horizontal */
+.container hr {
+    border: 0;
+    height: 2px;
+    background-color: #343a40;
+    margin: 10px 0;
+}
+
+/* Estilizando o campo de entrada */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Foco no campo de entrada */
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Estilizando o botão */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Cor do botão de sucesso */
+.btn-success {
+    background-color: #28a745;
+}
+
+/* Hover no botão de sucesso */
+.btn-success:hover {
+    background-color: #218838;
+}
+
+</style>
+<div class="container"><br>
+    <hr>
+    <h2>Cadastro de categoria</h2>
+    <hr>
+    <form method="POST" action="/categories/save">
+        <input class="form-control" type="text" name="title" placeholder="Defina o titulo da categoria">
+        <button class="btn btn-success">Cadastrar</button>
+    </form>
+</div>
+<%- include('../../partials/footer.ejs')%>
